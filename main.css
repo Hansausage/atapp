@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-family: 'Roboto';
+    margin-left: 4vw;
+    display: inline-block;
+}
+
+body h1 {
+    padding-top: 4vh;
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+
+li {
+    list-style: none;
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+li ul {
+    display: inherit;
+    padding-left: 1vw;
+}
+
+a {
+    text-decoration: none;
+    color: #4f989c;
+}
+
+#ride-request input {
+    margin-bottom: 1vw;
+    display: block;
+}
+
+#map {
+    height: 50vh;
+    width: 35vw;
+    float: right;
+    margin-left: 2vw;
+}
+
+#main-app {
+    display: inline-flex;
+    width: auto;
+}
+
+#return-check {
+    display: inline-flex;
+    margin: 0;
+}
+
+#return-check label {
+    margin-left: 4px;
+}
+
+footer {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+}
+
+@media only screen and (max-width: 500px) {
+    #main-app {
+        display: inline-block;
+        margin: auto;
+        width: 90vw;
+        height: auto;
+    }
+
+    body {
+        display: block;
+    }
+
+    #map {
+        width: 100%;
+        margin-top: 4px;
+    }
+}

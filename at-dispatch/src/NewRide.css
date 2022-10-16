@@ -1,0 +1,43 @@
+.RideOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.494);
+}
+
+.RideWindow {
+    display: block;
+    margin: 10vw;
+    height: 60vh;
+    background-color: rgb(232, 232, 232);
+    border-radius: 25px;
+}
+
+.Form {
+    margin: 1vw;
+    display: inherit;
+    box-sizing: border-box;
+    padding-top: 2vh;
+}
+
+.Form input {
+    display: inherit;
+    margin: 1vw;
+}
+
+.Buttons {
+    margin: 1vw;
+}
+
+.Buttons input {
+    margin: 2vw;
+}
+
+.Form h2 {
+    margin-left: 1vw;
+}

@@ -1,0 +1,27 @@
+.entry {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 2vh;
+    border-radius: 18px;
+    padding: 1vh;
+}
+.entry p {
+    font-size: small;
+}
+
+.entry:hover {
+    box-shadow: -5px -15px 88px 2px #C5C9C9;
+    transform: scale(1.01, 1.01);
+}
+
+.location {
+    width: 50%;
+}
+.other {
+    width: 35%;
+}
+
+.edit a {
+    text-decoration: none;
+    margin-left: 1vw;
+}

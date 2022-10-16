@@ -1,0 +1,20 @@
+.App {
+    margin: 10vh;
+    display: inline-block;
+}
+
+.container {
+    box-shadow: 5px -5px 25px 3px #C5C9C9;
+    border-radius: 18px;
+    background-color: rgb(250, 248, 248);
+    width: 100%;
+}
+
+.Header {
+    display: flex;
+}
+
+.Header a {
+    float: right;
+    margin: auto;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ATapp</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+   <script src="api.js"></script>
+   <script>
+       function load() {
+           document.getElementById("pickup").value = "";
+           document.getElementById("dropoff").value = "";
+           document.getElementById('contact').value = '';
+           document.getElementById("return").value = 0;
+       }
+       window.onload = load;
+   </script>
+</head>
+
+<body>
+    <h1>atapp client</h1>
+    <div id="main-app">
+    <div id="ride-request">
+        <form id="form">
+            <input type="text" list="places" placeholder="pickup location" id="pickup" name="pickup" autocomplete="off">
+            <input type="text" list="places" placeholder="drop off location" id="dropoff" name="dropoff">
+            <input type="text" placeholder="phone number" id="contact" name="contact">
+
+            <datalist id="places"></datalist>
+            <div id="return-check">
+                <input type="checkbox" id="return" name="return">
+                <label for="return">is this a return ride?</label>
+            </div>
+            <input type="button" value="request" id="request">
+            <script src="form.js"></script>
+        </form>
+        <p id="estfare"></p>
+    </div>
+        <div id="map">
+            <script src="map.js"></script>
+        </div>
+    </div>
+    <footer>
+    <li>
+        <ul><a href="tel:2311231234">(231) 123-1234</a></ul>
+        <ul><a href="mailto:test@test.com">test@test.com</a></ul>
+        <ul><a href="#about">about</a></ul>
+        <ul></ul>
+    </li>
+    </footer>
+</body>
