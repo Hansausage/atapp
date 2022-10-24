@@ -1,5 +1,6 @@
 {
   "name": "at-dispatch",
+  "homepage": "http://dispatch.atapp.test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

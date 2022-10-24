@@ -1,34 +1,50 @@
 import 'dotenv/config'
 import express from 'express';
 import session from 'express-session';
+import cors from 'cors';
 import connectRedis from 'connect-redis'
 import * as db from './db.js';
 const RedisStore = connectRedis(session);
 const app = express();
-const port = process.env.ATAPP_SERVER_PORT;
+
+const REDIS_SERVER = process.env.REDIS_SERVER; 
+
 
 /* TODO: ride.js
          crypto.js
          user.js
 */
+app.all('/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+  });
+  
+app.use(
+    cors({
+        origin: '*'
+    })
+);
+
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', '*')
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Access-Control-Allow-Origin');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Access-Control-Allow-Origin, Accept, Authorization');
 
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', false);
+    res.setHeader('Access-Control-Allow-Credentials', true);
 
     // Pass to next layer of middleware
     next();
 });
+
 app.use(
     express.urlencoded({
       extended: true

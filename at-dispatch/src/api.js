@@ -1,9 +1,11 @@
 module.exports = class Api {
     
-    Api() {}
+    Api() {
+        const server = "http://db.atapp.test";
+    }
     async getKeys() {
         try {
-            const request = await fetch('http://192.168.12.156:8080/db/scan', {
+            const request = await fetch(server + '/db/scan', {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -24,7 +26,7 @@ module.exports = class Api {
 
     async getKey(key) {
         try {
-            const request = await fetch('http://192.168.12.156:8080/db/getkey?key=' + key, {
+            const request = await fetch(server + '/db/getkey?key=' + key, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -40,7 +42,7 @@ module.exports = class Api {
 
     async submitRide(pickup, dropoff, contact, schedDateTime = null) {
         try {
-            const response = await fetch("http://192.168.12.156:8080/db/createride", {
+            const response = await fetch(server + "/db/createride", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -64,7 +66,7 @@ module.exports = class Api {
 
     async submitLogin(form) {
         try {
-            const response = await fetch('http://192.168.12.156:8080/db/login', {
+            const response = await fetch(server + '/db/login', {
                 method: 'POST',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
@@ -79,3 +81,4 @@ module.exports = class Api {
 }
 
 
+//172.28.39.186
