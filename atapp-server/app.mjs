@@ -1,35 +1,24 @@
 import 'dotenv/config'
 import express from 'express';
 import session from 'express-session';
-import cors from 'cors';
 import connectRedis from 'connect-redis'
 import * as db from './db.js';
 const RedisStore = connectRedis(session);
 const app = express();
 
-const REDIS_SERVER = process.env.REDIS_SERVER; 
+const REDIS_SERVER = process.env.REDIS_SERVER;
+const ATAPP_SERVER_PORT = process.env.ATAPP_SERVER_PORT;
 
 
 /* TODO: ride.js
          crypto.js
          user.js
 */
-app.all('/*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-  });
-  
-app.use(
-    cors({
-        origin: '*'
-    })
-);
 
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*')
+    //res.setHeader('Access-Control-Allow-Origin', 'atapp.test')
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -42,7 +31,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     // Pass to next layer of middleware
-    next();
+    next(); 
 });
 
 app.use(
@@ -64,7 +53,7 @@ app.use(session({
   
 app.use(express.json());
 
-  
+//TODO - rewrite to use ride class
 app.post('/db/createride', (req, res) => {
     console.log('[NEW REQUEST]\n' + req.body);
     db.set(req.body.number, req.body);
@@ -117,6 +106,6 @@ app.post('/db/createuser', (req, res) => {
         })
 })
 
-app.listen(port, () => {
-    console.log(`listening on port ${port}`);
+app.listen(ATAPP_SERVER_PORT, () => {
+    console.log(`listening on port ${ATAPP_SERVER_PORT}`);
 })

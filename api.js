@@ -1,5 +1,5 @@
 const accesstoken = 'pk.eyJ1IjoiYWNhYmdhYnJpZWwiLCJhIjoiY2wxeXZoeWNiMGFqbjNkbWk3N212cG90MCJ9.ZHcKscmMgU512WYIh5LDlA';
-const atapp_server = 'http://db.atapp.test';
+const atapp_server = 'http://server.atapp.test';
 const mapbox_places = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
 
 //mapbox geocoding

@@ -21,6 +21,11 @@ export async function get(key) {
     return x;
 }
 
+export async function incr(key) {
+    jsoncache.incr(key);
+    return key;
+}
+
 export function scan() {
     let keys = [];
     return new Promise((resolve, reject) => {
@@ -45,9 +50,7 @@ export function scan() {
     })
 }
 
-export async function createRide() {
-    return;
-}
+
 
 export async function createHash(password) {
    const hash = await bcrypt.hash(password, 10);
